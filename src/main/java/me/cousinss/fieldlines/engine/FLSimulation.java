@@ -18,7 +18,9 @@ public class FLSimulation {
     }
 
     private void initializeSimulation(int width, int height) {
-        this.chargeRoot.addChild(new PointCharge(1, this.chargeRoot, width/2d, height/2d, 25, 25));
+        this.chargeRoot.addChild(new PointCharge(1, this.chargeRoot, width/4d, height/4d, 25, 25));
+        this.chargeRoot.addChild(new PointCharge(-1, this.chargeRoot, width/2d, height/2d, 25, 25));
+        this.chargeRoot.addChild(new PointCharge(-1, this.chargeRoot, width/1.5d, height/2d, 25, 25));
     }
 
     public void populateFieldVectors(int numCols, int numRows, double gap) {

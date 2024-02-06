@@ -32,7 +32,7 @@ public class FieldLines extends Application {
     private static final int WIDTH = 600;
     private static final int HEIGHT = 600;
     private static final double VOLTAGE_MULTIPLIER = 2;
-    private static final double VOLTAGE_POWER =2.5;
+    private static final double VOLTAGE_POWER =2;
     private static final double VECTOR_GAP = 35;
     private static final int NUM_ROWS = (int)(HEIGHT / VECTOR_GAP)+1;
     private static final int NUM_COLS = (int)(WIDTH / VECTOR_GAP)+1;
