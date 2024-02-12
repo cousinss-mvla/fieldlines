@@ -1,6 +1,11 @@
 package me.cousinss.fieldlines.engine;
 
+import me.cousinss.fieldlines.InteractableStructure;
+import me.cousinss.fieldlines.engine.structure.LineCharge;
+import me.cousinss.fieldlines.engine.structure.PointCharge;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FLSimulation {
     private final ChargedEntity chargeRoot;
@@ -18,9 +23,9 @@ public class FLSimulation {
     }
 
     private void initializeSimulation(int width, int height) {
-        this.chargeRoot.addChild(new PointCharge(1, this.chargeRoot, width/4d, height/4d, 25, 25));
-        this.chargeRoot.addChild(new PointCharge(-1, this.chargeRoot, width/2d, height/2d, 25, 25));
-        this.chargeRoot.addChild(new PointCharge(-1, this.chargeRoot, width/1.5d, height/2d, 25, 25));
+//        this.chargeRoot.addChild(new PointCharge(1, this.chargeRoot, width/4d, height/4d));
+        this.chargeRoot.addChild(new LineCharge(-5, this.chargeRoot, width/2d, height/2.5d, 250, 0));
+        this.chargeRoot.addChild(new LineCharge(5, this.chargeRoot, width/2d, height/1.5d, 250, 0));
     }
 
     public void populateFieldVectors(int numCols, int numRows, double gap) {
@@ -41,6 +46,10 @@ public class FLSimulation {
             }
         }
         return this.voltage;
+    }
+
+    public List<InteractableStructure> getInteractableStructures() {
+        return chargeRoot.getDescendantsWithSelf().stream().filter(ce -> ce instanceof InteractableStructure).map(ce -> (InteractableStructure) ce).collect(Collectors.toList());
     }
 
     public List<FieldVector> calculateElectricField(double dFactor) {

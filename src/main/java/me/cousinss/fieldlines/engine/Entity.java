@@ -106,4 +106,8 @@ public class Entity<T extends Entity> {
     public boolean hasChildren() {
         return !this.children.isEmpty();
     }
+
+    public void clearChildren() {
+        this.children.clear();
+    }
 }

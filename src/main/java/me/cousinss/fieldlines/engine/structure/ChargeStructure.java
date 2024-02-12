@@ -1,4 +1,7 @@
-package me.cousinss.fieldlines.engine;
+package me.cousinss.fieldlines.engine.structure;
+
+import me.cousinss.fieldlines.engine.ChargedEntity;
+import me.cousinss.fieldlines.engine.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +9,11 @@ import java.util.List;
 public abstract class ChargeStructure extends ChargedEntity {
     private double width;
     private double height;
+    /**
+     Number of discrete charges per pixel, horizontally and vertically.
+     */
+    public static double STRUCTURE_RESOLUTION = 0.1;
+    public static double CHARGE_GAP = 1d/STRUCTURE_RESOLUTION;
 
     public ChargeStructure(Entity<? extends Entity<?>> parent, double x, double y, double width, double height) {
         super(parent, x, y, 0);
